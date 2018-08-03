@@ -1,0 +1,53 @@
+<?php
+/**
+ * OnlineBiz Software Solution
+ * 
+ * @project pokecard
+ * @version 0.0.1
+ * @encoding UTF-8
+ * @author Joe Vu<joe@onlinebizsoft.com>
+ * @see http://onlinebizsoft.com
+ * @copyright (c) 2017 , OnlineBiz Software Solution
+ * 
+ * Create at: Aug 3, 2018 5:10:33 PM
+ */
+$_SESSION['chance_history'] = [
+    'H2' => '50%',
+    'H3' => '40%',
+    'H4' => '30%',
+    'H5' => '20%'
+];
+?>
+
+<h4>Your card selected: <?php echo $_SESSION['customer_card'] ?></h4>
+<h4>Chance for next: <?php echo $this->chance_next ?></h4>
+<form action="<?php echo $this->url('play')?>" method="post">
+    <button class="btn btn-default">Get chance for card</button></h6>        
+</form>
+<?php
+if (isset($_SESSION['chance_history'])) {
+    ?>
+    <h3>History chance of card: </h3>
+    <table class="table">
+        <tr>
+            <th>N<sup>o</sup></th>
+            <th>Card Name</th>
+            <th>Chance</th>
+        </tr>
+        <?php
+        $i = 0;
+        foreach ($_SESSION['card_history'] as $key => $cardName) {
+            ?>
+            <tr>
+                <td><?php echo $i ?></td>
+                <td><?php echo $key ?></td>
+                <td><?php echo $cardName ?></td>
+            </tr>
+            <?php
+            $i++;
+        }
+        ?>
+    </table>
+    <?php
+}
+?>

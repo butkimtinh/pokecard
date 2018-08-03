@@ -1,0 +1,8 @@
+<?php
+$form->prepare();
+echo $this->form()->openTag($form);
+echo $this->formRow($form->get('suit'));
+echo $this->formRow($form->get('rank'));
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();
+?>
